@@ -37,7 +37,7 @@ const Show = () => {
 
     return (
         <div>
-            <NavbarGeneral />
+            <NavbarGeneral searchable />
 
             <Container.Basic className="pt-4 pb-5">
                 <Container.Row>

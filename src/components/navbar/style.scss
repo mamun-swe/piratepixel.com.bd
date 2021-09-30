@@ -4,7 +4,7 @@
     padding-bottom: 15px;
 
     .logo-contaier {
-        width: 40px;
+        min-width: 40px !important;
         height: 40px;
         overflow: hidden;
         border-radius: 4px;

@@ -2,7 +2,7 @@
 import React from 'react';
 import './style.scss';
 import { useHistory } from 'react-router';
-import { SearchComponent } from '../search/Index'
+import { SearchLarge } from '../search/Index'
 
 export const Banner = () => {
     const history = useHistory()
@@ -15,7 +15,7 @@ export const Banner = () => {
                         <h2 className="text-white fw-bold mb-3">Share your favourite image with peoples</h2>
                         <p className="text-white mb-4">Over 2.4 million+ high quality stock images, shared by our talented community.</p>
 
-                        <SearchComponent
+                        <SearchLarge
                             onSearch={value => history.push(`/search?query=${value.query}`)}
                         />
 

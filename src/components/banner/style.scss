@@ -1,0 +1,44 @@
+.banner-container {
+    width: 100%;
+    height: 550px;
+    overflow: hidden;
+    background-image: url(../../assets/images/banner-sm.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    position: relative;
+
+    .banner-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.418);
+
+        .content-card {
+            width: 90%;
+            margin: auto;
+
+            @media (min-width: 768px) {
+                width: 650px !important;
+            }
+
+            @media (min-width: 992px) {
+                width: 750px !important;
+            }
+
+            @media (min-width: 1440px) {
+                width: 850px !important;
+            }
+        }
+    }
+
+    @media (min-width: 992px) {
+        background-image: url(../../assets/images/banner-lg.jpg);
+    }
+
+    @media (min-width: 1440px) {
+        background-image: url(../../assets/images/banner-xl.jpg);
+    }
+}

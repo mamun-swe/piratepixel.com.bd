@@ -1,0 +1,76 @@
+// Gray button
+.btn-gray {
+    color: #6c757d !important;
+    background: #f8f9fa !important;
+
+    &:hover {
+        color: #212529 !important;
+        background: #e9ecef !important;
+    }
+}
+
+// Primary button
+.btn-primary {
+    color: #063cdd !important;
+    background: #0c236917 !important;
+
+    &:hover {
+        color: #063cdd !important;
+        background: #063cdd3f !important;
+    }
+}
+
+// Info button
+.btn-info {
+    color: #198754 !important;
+    background: none !important;
+}
+
+// Success button
+.btn-success {
+    color: #198754 !important;
+    background: #19875417 !important;
+
+    &:hover {
+        color: #198754 !important;
+        background: #19875444 !important;
+    }
+}
+
+// Danger button
+.btn-danger {
+    color: #dc3546a4 !important;
+    background: #dc354610 !important;
+
+    &:hover {
+        color: #dc3545 !important;
+        background: #dc35463a !important;
+    }
+}
+
+// Float button
+.btn-float {
+    position: fixed;
+    top: 45%;
+    right: 30px;
+    z-index: 99;
+    padding: 10px 10px !important;
+    border-radius: 50% !important;
+    background: #19875417 !important;
+    transition: 0.2s all;
+
+    &:hover {
+        color: #fff !important;
+        background: #198754 !important;
+    }
+}
+
+// circle button padding
+.circle__padding {
+    padding: 8px 10px !important;
+}
+
+// circle button padding
+.circle__padding__sm {
+    padding: 6px 9px !important;
+}

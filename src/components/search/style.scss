@@ -1,0 +1,18 @@
+.search-container {
+    .form-group {
+        position: relative;
+
+        .form-control {
+            font-size: 14px !important;
+            min-height: 55px !important;
+            padding-left: 45px;
+            padding-right: 25px;
+        }
+
+        .search-icon {
+            position: absolute;
+            top: 16px;
+            left: 15px;
+        }
+    }
+}

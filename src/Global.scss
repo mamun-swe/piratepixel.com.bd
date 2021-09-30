@@ -1,0 +1,51 @@
+/* Flex Box */
+
+.flex-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100%;
+}
+
+.flex-column {
+    -ms-flex-direction: column !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    flex-direction: column !important;
+}
+
+// Form
+form {
+    .form-group {
+        small {
+            color: #555;
+            font-size: 12px;
+            margin-bottom: 3px;
+            margin-left: 3px;
+        }
+
+        .form-control {
+            width: 100%;
+            color: #000;
+            font-size: 13px;
+            min-height: 45px;
+            background: #e9e8e8;
+            border: 1px solid #e9e8e8;
+        }
+
+        .form-control:focus {
+            background: #fff;
+            border: 1px solid #e9e8e8;
+        }
+
+        .error {
+            border: 1px solid red !important;
+        }
+    }
+}

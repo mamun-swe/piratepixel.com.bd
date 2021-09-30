@@ -10,8 +10,8 @@ import { Images } from '../../utils/Images';
 
 export const NavbarGeneral = () => {
     return (
-        <div className="navbar-general">
-            <Container.Fluid className="bg-white">
+        <div className="navbar-general bg-white">
+            <Container.Fluid>
                 <Container.Row>
                     <Container.Column>
                         <div className="d-flex">

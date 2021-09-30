@@ -8,6 +8,8 @@ import {
 import ScrollToTop from './components/scrollToTop/Index'
 
 import Home from './pages/home/Index'
+import Photos from './pages/photos/Index'
+import PhotoShow from './pages/photos/Show'
 import FourOFour from './pages/fourOfour/Index'
 
 function App() {
@@ -17,7 +19,8 @@ function App() {
         <ScrollToTop>
           <Switch>
             <Route exact path="/" component={Home} />
-
+            <Route exact path="/photos" component={Photos} />
+            <Route exact path="/photo/:slug" component={PhotoShow} />
 
             <Route path="*" component={FourOFour} />
           </Switch>

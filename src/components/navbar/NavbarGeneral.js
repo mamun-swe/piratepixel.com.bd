@@ -13,6 +13,24 @@ import { Images } from '../../utils/Images';
 export const NavbarGeneral = (props) => {
     const history = useHistory()
 
+    // handle to go profile
+    const goProfile = () => {
+        if (localStorage.getItem("token")) {
+            history.push("/account")
+        } else {
+            history.push("/login")
+        }
+    }
+
+    // handle to go upload
+    const goUpload = () => {
+        if (localStorage.getItem("token")) {
+            history.push("/account/upload")
+        } else {
+            history.push("/login")
+        }
+    }
+
     return (
         <div className="navbar-general bg-white">
             <Container.Fluid>
@@ -59,7 +77,10 @@ export const NavbarGeneral = (props) => {
                             <div className="ms-auto">
                                 <div className="d-flex">
                                     <div>
-                                        <CustomButton className="btn-gray rounded-circle circle__padding__sm">
+                                        <CustomButton
+                                            className="btn-gray rounded-circle circle__padding__sm"
+                                            onClick={goProfile}
+                                        >
                                             <User size={20} />
                                         </CustomButton>
                                     </div>
@@ -67,6 +88,7 @@ export const NavbarGeneral = (props) => {
                                         <CustomButton
                                             className="btn-success border-0 d-none d-lg-block ms-2"
                                             style={{ fontSize: 14, borderRadius: 25, padding: "6px 20px", marginTop: 2 }}
+                                            onClick={goUpload}
                                         >
                                             <Upload size={14} /> Upload
                                         </CustomButton>

@@ -74,3 +74,29 @@
 .circle__padding__sm {
     padding: 6px 9px !important;
 }
+
+// facebook login button
+.facebook-login-button {
+    color: #fff;
+    font-size: 14px;
+    background: #357bf7;
+    padding-top: 11px;
+    padding-bottom: 11px;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
+// google login buton
+.google-login-button {
+    color: #fff;
+    font-size: 14px;
+    background: #DB4437;
+    padding-top: 11px;
+    padding-bottom: 11px;
+
+    &:hover {
+        color: #fff;
+    }
+}

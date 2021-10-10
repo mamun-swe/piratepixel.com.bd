@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import './style.scss';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
@@ -8,19 +8,12 @@ import { ChevronDown, Menu, Upload, User } from 'react-feather';
 import { Container } from '../container/Index';
 import { CustomButton } from '../button/Index';
 import { SearchSmall } from '../search/Index'
+import { CustomDrawer } from '../drawer/Index'
 import { Images } from '../../utils/Images';
 
 export const NavbarGeneral = (props) => {
     const history = useHistory()
-
-    // handle to go profile
-    const goProfile = () => {
-        if (localStorage.getItem("token")) {
-            history.push("/account")
-        } else {
-            history.push("/login")
-        }
-    }
+    const [show, setShow] = useState(false)
 
     // handle to go upload
     const goUpload = () => {
@@ -73,16 +66,22 @@ export const NavbarGeneral = (props) => {
                                 </div>
                             }
 
-                            {/* Links container */}
+                            {/* Links container & drawer menu container */}
                             <div className="ms-auto">
                                 <div className="d-flex">
                                     <div>
-                                        <CustomButton
-                                            className="btn-gray rounded-circle circle__padding__sm"
-                                            onClick={goProfile}
+                                        <DropdownButton
+                                            variant="white"
+                                            className="profile-dropdown-btn-container"
+                                            drop="down"
+                                            align="end"
+                                            title={<User size={20} />}
                                         >
-                                            <User size={20} />
-                                        </CustomButton>
+                                            <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2">My Media</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-3">Upload</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-3">Logout</Dropdown.Item>
+                                        </DropdownButton>
                                     </div>
                                     <div>
                                         <CustomButton
@@ -94,7 +93,10 @@ export const NavbarGeneral = (props) => {
                                         </CustomButton>
                                     </div>
                                     <div>
-                                        <CustomButton className="btn-gray rounded-circle d-lg-none circle__padding__sm ms-2">
+                                        <CustomButton
+                                            className="btn-gray rounded-circle d-lg-none circle__padding__sm ms-2"
+                                            onClick={() => setShow(true)}
+                                        >
                                             <Menu size={20} />
                                         </CustomButton>
                                     </div>
@@ -104,6 +106,12 @@ export const NavbarGeneral = (props) => {
                     </Container.Column>
                 </Container.Row>
             </Container.Fluid>
+
+            {/* Mobile drawer */}
+            <CustomDrawer
+                show={show}
+                onHide={() => setShow(false)}
+            />
         </div>
     );
 };

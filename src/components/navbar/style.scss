@@ -96,4 +96,55 @@
             }
         }
     }
+
+    // profile-dropdown-btn-container
+    .profile-dropdown-btn-container {
+        .dropdown-toggle {
+            padding: 7px 10px;
+            box-shadow: none;
+            border: 0 !important;
+            border-radius: 25px !important;
+            color: #6c757d !important;
+            background: #ececec !important;
+
+            &:hover {
+                color: #212529 !important;
+                background: #e9ecef !important;
+            }
+
+            &:focus {
+                box-shadow: none !important;
+            }
+
+            &:active {
+                background: none;
+            }
+
+            &:after {
+                display: none;
+            }
+        }
+
+        .dropdown-menu {
+            border: 0;
+            overflow: hidden;
+            min-width: 180px;
+            border-radius: 4px;
+            margin-top: 10px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+            .dropdown-item {
+                color: #555;
+                font-size: 14px;
+                padding: 6px 15px;
+                transition: 0.3s all;
+                text-transform: capitalize;
+
+                &:hover {
+                    color: #000;
+                    background: none;
+                }
+            }
+        }
+    }
 }

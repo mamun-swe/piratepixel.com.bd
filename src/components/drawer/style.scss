@@ -1,0 +1,26 @@
+.offcanvas-body {
+    a {
+        color: #000 !important;
+        font-size: 15px !important;
+        display: block;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-decoration: none;
+    }
+
+    .accordion {
+        .accordion-button {
+            color: #000 !important;
+            font-size: 15px !important;
+            background: none !important;
+            padding-top: 5px;
+            padding-bottom: 5px;
+
+            &:after {
+                width: 15px !important;
+                height: 15px !important;
+                background-size: 15px !important;
+            }
+        }
+    }
+}

@@ -12,7 +12,7 @@ import { CustomButton } from '../../components/button/Index';
 
 
 const Index = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm()
     const [isLoading, setLoading] = useState(false)
 
     const onSubmit = async (data) => {

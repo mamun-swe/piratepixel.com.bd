@@ -5,6 +5,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom'
+import { PrivateRoute } from './components/privateRoute/Index'
 import ScrollToTop from './components/scrollToTop/Index'
 
 import Home from './pages/home/Index'
@@ -16,6 +17,7 @@ import Login from './pages/login/Index'
 import Register from './pages/register/Index'
 import Reset from './pages/reset/Index'
 import FourOFour from './pages/fourOfour/Index'
+import AccountMaster from './pages/account/master/Index'
 
 function App() {
   return (
@@ -31,6 +33,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/reset" component={Reset} />
+            <PrivateRoute path="/account" component={AccountMaster} />
 
             <Route path="*" component={FourOFour} />
           </Switch>

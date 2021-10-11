@@ -77,9 +77,9 @@ export const NavbarGeneral = (props) => {
                                             align="end"
                                             title={<User size={20} />}
                                         >
-                                            <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-2">My Media</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-3">Upload</Dropdown.Item>
+                                            <Dropdown.Item as={Link} to="/account">My Media</Dropdown.Item>
+                                            <Dropdown.Item as={Link} to="/account/upload">Upload</Dropdown.Item>
+                                            <Dropdown.Item as={Link} to="/account/settings">Settings</Dropdown.Item>
                                             <Dropdown.Item href="#/action-3">Logout</Dropdown.Item>
                                         </DropdownButton>
                                     </div>

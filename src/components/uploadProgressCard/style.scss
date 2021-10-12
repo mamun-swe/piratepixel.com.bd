@@ -1,0 +1,12 @@
+.upload-progress-container {
+    .file-container {
+        width: 90px;
+        height: 90px;
+        overflow: hidden;
+
+        img {
+            max-width: 90px;
+            max-height: 90px;
+        }
+    }
+}

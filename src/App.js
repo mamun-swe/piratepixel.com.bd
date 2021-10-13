@@ -16,8 +16,9 @@ import UserProfile from './pages/users/Show'
 import Login from './pages/login/Index'
 import Register from './pages/register/Index'
 import Reset from './pages/reset/Index'
-import FourOFour from './pages/fourOfour/Index'
 import AccountMaster from './pages/account/master/Index'
+import About from './pages/about/Index'
+import FourOFour from './pages/fourOfour/Index'
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/reset" component={Reset} />
+            <Route exact path="/about" component={About} />
             <PrivateRoute path="/account" component={AccountMaster} />
 
             <Route path="*" component={FourOFour} />

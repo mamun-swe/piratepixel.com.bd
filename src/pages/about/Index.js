@@ -19,7 +19,6 @@ const Index = () => {
         { image: Images.TL, name: "Torvi", position: "Site Reliability Engineer" },
     ]
 
-
     return (
         <div>
             <NavbarGeneral />

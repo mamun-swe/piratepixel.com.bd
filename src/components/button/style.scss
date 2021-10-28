@@ -76,25 +76,17 @@
 }
 
 // facebook login button
-.facebook-login-button {
+.my-facebook-button-class {
+    width: 100%;
+    border: 0;
+    text-transform: uppercase;
+    font-weight: 700;
     color: #fff;
-    font-size: 14px;
+    font-size: 13px;
     background: #357bf7;
-    padding-top: 11px;
-    padding-bottom: 11px;
-
-    &:hover {
-        color: #fff;
-    }
-}
-
-// google login buton
-.google-login-button {
-    color: #fff;
-    font-size: 14px;
-    background: #DB4437;
-    padding-top: 11px;
-    padding-bottom: 11px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-radius: 4px;
 
     &:hover {
         color: #fff;

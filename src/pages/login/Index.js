@@ -115,13 +115,11 @@ const Index = () => {
                                                     fields="name,email"
                                                     callback={responseFacebook}
                                                     cssClass="my-facebook-button-class"
-                                                    render={renderProps => (
+                                                    onClick={
                                                         <CustomButton
                                                             type="button"
-                                                            onClick={renderProps.onClick}
                                                         >Login with facebook</CustomButton>
-                                                    )}
-                                                    
+                                                    }
                                                 />
 
                                                 <div className="mt-3">

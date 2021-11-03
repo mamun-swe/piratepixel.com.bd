@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-// import { useHistory } from 'react-router';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router';
 import { User } from 'react-feather';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -9,19 +9,38 @@ import { Container } from '../../components/container/Index'
 import { Card } from '../../components/card/Index';
 import { Footer } from '../../components/footer/Index';
 import { CustomButton } from '../../components/button/Index';
-import { Images } from '../../utils/Images'
+import { Toastify } from '../../components/toastify/Toastify'
+import { Images } from '../../utils/Images';
+import { Requests } from '../../utils/requests/Index';
 
 const Index = () => {
+    const history = useHistory()
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [isLoading, setLoading] = useState(false)
 
-    const onSubmit = async (data) => {
-        console.log(data);
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        if (token) history.push('/account')
+    }, [history])
 
-        setLoading(true)
-        setTimeout(() => {
+    const onSubmit = async (data) => {
+        try {
+            setLoading(true)
+            const response = await Requests.Auth.Register(data)
+            if (response && response.status === 201) {
+                Toastify.Success(response.data.message)
+                history.push('/login')
+            }
+
             setLoading(false)
-        }, 2000);
+        } catch (error) {
+            if (error) {
+                setLoading(false)
+                if (error.response && error.response.data) {
+                    Toastify.Error(error.response.data.message)
+                }
+            }
+        }
     }
 
     return (

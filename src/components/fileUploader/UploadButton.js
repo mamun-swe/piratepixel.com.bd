@@ -8,6 +8,7 @@ export const UploadButton = (props) => {
                 type="file"
                 accept=".jpg, .png, .jpeg"
                 className="upload"
+                disabled={props.disabled}
                 multiple={props.multi}
                 onChange={props.onChange}
             />

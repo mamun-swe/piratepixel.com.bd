@@ -24,6 +24,12 @@ export const NavbarGeneral = (props) => {
         }
     }
 
+    // handle logout
+    const doLogout = () => {
+        localStorage.removeItem("token")
+        history.push("/")
+    }
+
     return (
         <div className="navbar-general bg-white">
             <Container.Fluid>
@@ -80,7 +86,7 @@ export const NavbarGeneral = (props) => {
                                             <Dropdown.Item as={Link} to="/account">My Media</Dropdown.Item>
                                             <Dropdown.Item as={Link} to="/account/upload">Upload</Dropdown.Item>
                                             <Dropdown.Item as={Link} to="/account/settings">Settings</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-3">Logout</Dropdown.Item>
+                                            <Dropdown.Item onClick={doLogout}>Logout</Dropdown.Item>
                                         </DropdownButton>
                                     </div>
                                     <div>

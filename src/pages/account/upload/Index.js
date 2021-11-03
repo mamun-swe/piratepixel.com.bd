@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Container } from '../../../components/container/Index'
-import { MultiFileUploader } from '../../../components/fileUploader/MultiFileUploader'
+import { FileUploader } from '../../../components/fileUploader/FileUploader'
 import { UploadProgressCard } from '../../../components/uploadProgressCard/UploadProgressCard'
 
 const Index = () => {
     const [selectedFiles, setSelectedFiles] = useState([])
+    const tags = ["abcd", "acdb", "abdc", "xyz"]
 
     // Handle files
     const handleFiles = data => {
@@ -15,13 +16,6 @@ const Index = () => {
         setSelectedFiles(filesArray)
     }
 
-    // Handle remove file
-    const handleRemove = data => {
-        const withOutThisFile = selectedFiles.filter(x => x.name !== data.name)
-        const newFiles = [...withOutThisFile]
-        setSelectedFiles(newFiles)
-    }
-
     return (
         <div className="file-uploader-container">
             <Container.Fluid>
@@ -30,8 +24,8 @@ const Index = () => {
                 {selectedFiles && !selectedFiles.length ?
                     <Container.Row className="py-30">
                         <Container.Column className="col-md-8 col-lg-7 col-xl-6 col-xxl-5 m-auto">
-                            <MultiFileUploader
-                                multi={true}
+                            <FileUploader
+                                multi={false}
                                 onSelected={files => handleFiles(files)}
                             />
                         </Container.Column>
@@ -48,7 +42,8 @@ const Index = () => {
                                 <UploadProgressCard
                                     key={i}
                                     data={item}
-                                    onClick={() => handleRemove(item)}
+                                    tags={tags}
+                                    categories={[{ label: "abcd", value: "abcd" }]}
                                 />
                             )}
 

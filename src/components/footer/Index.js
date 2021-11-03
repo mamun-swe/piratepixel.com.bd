@@ -36,10 +36,10 @@ export const Footer = () => {
                     <Container.Column className="col-lg-4">
                         <h6 className="mb-3">My Account</h6>
                         <div className="mb-1">
-                            <Link className="text-muted font-15" to="/account/profile">Profile</Link>
+                            <Link className="text-muted font-15" to="/account/settings">Profile</Link>
                         </div>
                         <div className="mb-1">
-                            <Link className="text-muted font-15" to="/account/media">My Media</Link>
+                            <Link className="text-muted font-15" to="/account">My Media</Link>
                         </div>
                         <div className="mb-1">
                             <Link className="text-muted font-15" to="/account/upload">Upload</Link>

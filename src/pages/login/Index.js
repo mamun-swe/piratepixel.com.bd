@@ -1,7 +1,7 @@
 
-import React, { useState } from 'react';
-// import { useHistory } from 'react-router';
-import FacebookLogin from 'react-facebook-login';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router';
+// import FacebookLogin from 'react-facebook-login';
 import { Unlock } from 'react-feather';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -10,28 +10,48 @@ import { Container } from '../../components/container/Index'
 import { Card } from '../../components/card/Index';
 import { Footer } from '../../components/footer/Index';
 import { CustomButton } from '../../components/button/Index';
+import { Toastify } from '../../components/toastify/Toastify'
+import { Images } from '../../utils/Images';
+import { Requests } from '../../utils/requests/Index';
 
 
 const Index = () => {
+    const history = useHistory()
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [isLoading, setLoading] = useState(false)
 
     // Facebook response
-    const responseFacebook = (response) => {
-        const data = {
-            name: response.name,
-            email: response.email
-        }
-        console.log(data);
-    }
+    // const responseFacebook = (response) => {
+    //     const data = {
+    //         name: response.name,
+    //         email: response.email
+    //     }
+    //     console.log(data);
+    // }
+
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        if (token) history.push('/account')
+    }, [history])
 
     const onSubmit = async (data) => {
-        console.log(data);
+        try {
+            setLoading(true)
+            const response = await Requests.Auth.Login(data)
+            if (response && response.status === 200) {
+                localStorage.setItem("token", response.data.token)
+                history.push('/account')
+            }
 
-        setLoading(true)
-        setTimeout(() => {
             setLoading(false)
-        }, 2000);
+        } catch (error) {
+            if (error) {
+                setLoading(false)
+                if (error.response && error.response.data) {
+                    Toastify.Error(error.response.data.message)
+                }
+            }
+        }
     }
 
     return (
@@ -106,10 +126,13 @@ const Index = () => {
                                             </Container.Column>
 
                                             {/* Social media login buttons */}
-                                            <Container.Column className="col-lg-6 mt-4 text-center">
+                                            <Container.Column className="col-lg-6 text-end text-lg-center">
+                                                <div className="d-none d-lg-block">
+                                                    <img src={Images.Register} className="img-fluid" alt="..." />
+                                                </div>
 
                                                 {/* Facebook login button */}
-                                                <FacebookLogin
+                                                {/* <FacebookLogin
                                                     appId="261936559215416"
                                                     autoLoad={true}
                                                     fields="name,email"
@@ -120,7 +143,7 @@ const Index = () => {
                                                             type="button"
                                                         >Login with facebook</CustomButton>
                                                     }
-                                                />
+                                                /> */}
 
                                                 <div className="mt-3">
                                                     <p className="font-14 text-muted mb-0">Have no account? <Link to="/register">Register</Link></p>

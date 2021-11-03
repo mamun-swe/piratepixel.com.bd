@@ -1,7 +1,7 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.scss'
-// import { useHistory } from 'react-router';
+import { useHistory } from 'react-router';
 import { Info } from 'react-feather';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -13,8 +13,14 @@ import { CustomButton } from '../../components/button/Index';
 
 
 const Index = () => {
+    const history = useHistory()
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [isLoading, setLoading] = useState(false)
+
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        if (token) history.push('/account')
+    }, [history])
 
     const onSubmit = async (data) => {
         console.log(data);

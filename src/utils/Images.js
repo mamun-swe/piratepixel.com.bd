@@ -8,6 +8,8 @@ import Register from '../assets/images/register.png'
 import CTO from '../assets/team/cto.jpg'
 import VP from '../assets/team/vp.jpg'
 import TL from '../assets/team/tl.jpg'
+import NetworkError from '../assets/images/501.png'
+import NoContent from '../assets/images/204.svg'
 
 export const Images = {
     Logo,
@@ -18,5 +20,7 @@ export const Images = {
     Register,
     CTO,
     VP,
-    TL
+    TL,
+    NetworkError,
+    NoContent
 }

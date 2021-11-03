@@ -1,13 +1,13 @@
 
 import { Route, Redirect } from 'react-router-dom'
-// import { isLoggedin } from '../../utils/Authenticate'
+import { useAuth } from '../../utils/Authenticate'
 
 export const PrivateRoute = ({ component: Component, ...rest }) => {
-    const isLoggedin = true
+    const isAuthenticate = useAuth()
 
     return (
         <>
-            {isLoggedin ?
+            {isAuthenticate ?
                 <Route
                     {...rest}
                     render={(props) => (
@@ -17,7 +17,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
                     )}
                 />
                 :
-                <Redirect to={{ pathname: "/" }} />
+                <Redirect to={{ pathname: "/login" }} />
             }
         </>
     );

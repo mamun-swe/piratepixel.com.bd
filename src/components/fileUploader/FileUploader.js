@@ -2,7 +2,7 @@ import React from 'react';
 import './style.scss';
 import { UploadButton } from './UploadButton';
 
-export const MultiFileUploader = (props) => {
+export const FileUploader = (props) => {
     return (
         <div className="multi-file-uploader-container text-center px-30 py-30">
             <p className="text-dark font-14 fw-bolder mb-2">Select your files & and upload to media. It's easy to upload.</p>

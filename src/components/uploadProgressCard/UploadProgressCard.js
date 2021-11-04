@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import fileSize from 'file-size';
-// import { X } from 'react-feather';
 import { Card } from '../card/Index';
 import { SingleSelect } from '../select/Index'
 import { CustomButton } from '../button/Index'
-
+import { Toastify } from '../toastify/Toastify'
+import { Requests } from '../../utils/requests/Index';
 
 export const UploadProgressCard = (props) => {
     const [category, setCategory] = useState({ value: null, error: null })
     const [tags, setTags] = useState({ values: [], error: null })
     const [isLoading, setLoading] = useState(false)
-
 
     // Handle tags
     const handleTags = value => {
@@ -67,20 +66,20 @@ export const UploadProgressCard = (props) => {
             if (isError) return
 
             setLoading(true)
-            const formData = {
-                category: category.value,
-                tags: JSON.stringify(tags.values)
+            const formData = new FormData()
+            formData.append("category", category.value)
+            formData.append("tags", JSON.stringify(tags.values))
+            formData.append("image", props.data)
+
+            const response = await Requests.Account.UploadMedia(formData)
+            if (response && response.status === 201) {
+                Toastify.Success(response.data.message)
             }
-
-            console.log(formData)
-
-            setTimeout(() => {
-                setLoading(false)
-            }, 2000);
+            setLoading(false)
         } catch (error) {
             if (error) {
                 setLoading(false)
-                console.log(error)
+                Toastify.Error("Network error!")
             }
         }
     }

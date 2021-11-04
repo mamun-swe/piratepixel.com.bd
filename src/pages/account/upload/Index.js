@@ -1,11 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Container } from '../../../components/container/Index'
 import { FileUploader } from '../../../components/fileUploader/FileUploader'
 import { UploadProgressCard } from '../../../components/uploadProgressCard/UploadProgressCard'
+import { Requests } from '../../../utils/requests/Index'
 
 const Index = () => {
     const [selectedFiles, setSelectedFiles] = useState([])
-    const tags = ["abcd", "acdb", "abdc", "xyz"]
+    const [categories, setCategories] = useState([])
+    const [tags, setTags] = useState([])
+
+    // fetch category
+    const fetchCategory = useCallback(async () => {
+        try {
+            const response = await Requests.Web.Category()
+            if (response && response.status === 200) {
+                if (response.data.data && response.data.data.length) {
+                    const items = []
+                    for (let i = 0; i < response.data.data.length; i++) {
+                        const element = response.data.data[i]
+                        items.push({
+                            label: element.name,
+                            value: element._id
+                        })
+                    }
+
+                    setCategories(items)
+                }
+            }
+        } catch (error) {
+            if (error) console.log(error)
+        }
+    }, [])
+
+    // fetch tags
+    const fetchTags = useCallback(async () => {
+        try {
+            const response = await Requests.Web.Tags()
+            if (response && response.status === 200) {
+                if (response.data.data && response.data.data.length) {
+                    const items = []
+                    for (let i = 0; i < response.data.data.length; i++) {
+                        const element = response.data.data[i]
+                        items.push(element.title)
+                    }
+
+                    setTags(items)
+                }
+            }
+        } catch (error) {
+            if (error) console.log(error)
+        }
+    }, [])
+
+
+    useEffect(() => {
+        fetchCategory()
+    }, [fetchCategory])
+
+    useEffect(() => {
+        fetchTags()
+    }, [fetchTags])
 
     // Handle files
     const handleFiles = data => {
@@ -43,7 +97,7 @@ const Index = () => {
                                     key={i}
                                     data={item}
                                     tags={tags}
-                                    categories={[{ label: "abcd", value: "abcd" }]}
+                                    categories={categories}
                                 />
                             )}
 

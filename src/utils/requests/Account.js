@@ -28,8 +28,28 @@ const UpdateProfileImage = async (data) => {
     return await Axios.post(`${UserAPI}me/upload-profile-image`, data, header)
 }
 
+// My uploaded index
+const MyMedia = async () => {
+    const header = {
+        headers: { Authorization: "Bearer " + localStorage.getItem('token') }
+    }
+
+    return await Axios.get(`${UserAPI}media`, header)
+}
+
+// Upload new media
+const UploadMedia = async (data) => {
+    const header = {
+        headers: { Authorization: "Bearer " + localStorage.getItem('token') }
+    }
+
+    return await Axios.post(`${UserAPI}media`, data, header)
+}
+
 export const Account = {
     Profile,
     UpdateProfile,
-    UpdateProfileImage
+    UpdateProfileImage,
+    MyMedia,
+    UploadMedia
 }

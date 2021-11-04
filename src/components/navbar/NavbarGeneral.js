@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import './style.scss';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
@@ -10,10 +10,28 @@ import { CustomButton } from '../button/Index';
 import { SearchSmall } from '../search/Index'
 import { CustomDrawer } from '../drawer/Index'
 import { Images } from '../../utils/Images';
+import { Requests } from '../../utils/requests/Index'
 
 export const NavbarGeneral = (props) => {
     const history = useHistory()
+    const [data, setData] = useState([])
     const [show, setShow] = useState(false)
+
+    // fetch data
+    const fetchData = useCallback(async () => {
+        try {
+            const response = await Requests.Web.Category()
+            if (response && response.status === 200) {
+                setData(response.data.data)
+            }
+        } catch (error) {
+            if (error) setData([])
+        }
+    }, [])
+
+    useEffect(() => {
+        fetchData()
+    }, [fetchData])
 
     // handle to go upload
     const goUpload = () => {
@@ -58,14 +76,15 @@ export const NavbarGeneral = (props) => {
                                                 className="shadow-none"
                                                 title={<span>Categories <ChevronDown size={15} /></span>}
                                             >
-                                                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                                {data && data.length ?
+                                                    data.map((item, i) =>
+                                                        <Dropdown.Item
+                                                            key={i}
+                                                            as={Link}
+                                                            to={`/category/${item._id}`}
+                                                        >{item.name}</Dropdown.Item>
+                                                    ) : null
+                                                }
                                             </DropdownButton>
                                         </li>
                                     </ul>
@@ -116,6 +135,7 @@ export const NavbarGeneral = (props) => {
             {/* Mobile drawer */}
             <CustomDrawer
                 show={show}
+                data={data}
                 onHide={() => setShow(false)}
             />
         </div>

@@ -19,9 +19,14 @@ export const CustomDrawer = (props) => {
                         <Accordion.Item eventKey="0">
                             <Accordion.Button className="shadow-none px-0">Categories</Accordion.Button>
                             <Accordion.Body className="p-0">
-                                <Link to="/photos">Photos</Link>
-                                <Link to="/photos">Photos</Link>
-                                <Link to="/photos">Photos</Link>
+                                {props.data && props.data.length ?
+                                    props.data.map((item, i) =>
+                                        <Link
+                                            key={i}
+                                            to={`/category/${item._id}`}
+                                        >{item.name}</Link>
+                                    )
+                                    : null}
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>

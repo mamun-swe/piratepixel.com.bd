@@ -1,0 +1,14 @@
+.four-o-four {
+    width: 100%;
+    height: 100vh;
+}
+
+.four-o-four img {
+    width: 250px;
+}
+
+@media (min-width: 576px) {
+    .four-o-four img {
+        width: 350px;
+    }
+}

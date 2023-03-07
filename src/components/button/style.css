@@ -1,0 +1,85 @@
+.btn-gray {
+	color: #6c757d !important;
+	background: #ececec !important;
+}
+
+.btn-gray:hover {
+	color: #212529 !important;
+	background: #e9ecef !important;
+}
+
+.btn-primary {
+	color: #063cdd !important;
+	background: #0c236917 !important;
+}
+
+.btn-primary:hover {
+	color: #063cdd !important;
+	background: #063cdd3f !important;
+}
+
+.btn-info {
+	color: #198754 !important;
+	background: none !important;
+}
+
+.btn-success {
+	color: #198754 !important;
+	background: #19875417 !important;
+}
+
+.btn-success:hover {
+	color: #198754 !important;
+	background: #19875444 !important;
+}
+
+.btn-danger {
+	color: #dc3546a4 !important;
+	background: #dc354610 !important;
+}
+
+.btn-danger:hover {
+	color: #dc3545 !important;
+	background: #dc35463a !important;
+}
+
+.btn-float {
+	position: fixed;
+	top: 45%;
+	right: 30px;
+	z-index: 99;
+	padding: 10px 10px !important;
+	border-radius: 50% !important;
+	background: #19875417 !important;
+	transition: 0.2s all;
+}
+
+.btn-float:hover {
+	color: #fff !important;
+	background: #198754 !important;
+}
+
+.circle__padding {
+	padding: 8px 10px !important;
+}
+
+.circle__padding__sm {
+	padding: 6px 9px !important;
+}
+
+.my-facebook-button-class {
+	width: 100%;
+	border: 0;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #fff;
+	font-size: 13px;
+	background: #357bf7;
+	padding-top: 13px;
+	padding-bottom: 13px;
+	border-radius: 4px;
+}
+
+.my-facebook-button-class:hover {
+	color: #fff;
+}

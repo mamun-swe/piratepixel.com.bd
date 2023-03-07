@@ -1,66 +1,87 @@
-
-import React from 'react';
-import './style.scss';
-import { useForm } from 'react-hook-form';
-import { Search } from 'react-feather';
-import { useQuery } from '../query/Index';
-
+import React from "react";
+import "./style.css";
+import { useForm } from "react-hook-form";
+import { Search } from "react-feather";
+import { useQuery } from "../query/Index";
 
 // Large search component
 export const SearchLarge = (props) => {
-    const { register, handleSubmit, formState: { errors } } = useForm()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-    // handle submit
-    const onSubmit = data => props.onSearch(data)
+  // handle submit
+  const onSubmit = (data) => props.onSearch(data);
 
-    return (
-        <div className="search-container-lg">
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="form-group mb-0">
-                    <input
-                        type="text"
-                        placeholder="Search images"
-                        className={errors.query ? "form-control shadow-none error" : "form-control shadow-none"}
-                        {...register("query", { required: true })}
-                    />
+  return (
+    <div className="search-container-lg">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="form-group mb-0">
+          <input
+            type="text"
+            placeholder="Search images"
+            className={
+              errors.query
+                ? "form-control shadow-none error"
+                : "form-control shadow-none"
+            }
+            {...register("query", { required: true })}
+          />
 
-                    <Search
-                        size={23}
-                        className={errors.query ? "search-icon text-danger" : "search-icon text-muted"}
-                    />
-                </div>
-            </form>
+          <Search
+            size={23}
+            className={
+              errors.query
+                ? "search-icon text-danger"
+                : "search-icon text-muted"
+            }
+          />
         </div>
-    );
+      </form>
+    </div>
+  );
 };
-
 
 // Small search component
 export const SearchSmall = (props) => {
-    const { query } = useQuery()
-    const { register, handleSubmit, formState: { errors } } = useForm()
+  const { query } = useQuery();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-    // handle submit
-    const onSubmit = data => props.onSearch(data)
+  // handle submit
+  const onSubmit = (data) => props.onSearch(data);
 
-    return (
-        <div className="search-container-sm">
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="form-group mb-0">
-                    <input
-                        type="text"
-                        placeholder="Search images"
-                        defaultValue={query || null}
-                        className={errors.query ? "form-control shadow-none error" : "form-control shadow-none"}
-                        {...register("query", { required: true })}
-                    />
+  return (
+    <div className="search-container-sm">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="form-group mb-0">
+          <input
+            type="text"
+            placeholder="Search images"
+            defaultValue={query || null}
+            className={
+              errors.query
+                ? "form-control shadow-none error"
+                : "form-control shadow-none"
+            }
+            {...register("query", { required: true })}
+          />
 
-                    <Search
-                        size={16}
-                        className={errors.query ? "search-icon text-danger" : "search-icon text-muted"}
-                    />
-                </div>
-            </form>
+          <Search
+            size={16}
+            className={
+              errors.query
+                ? "search-icon text-danger"
+                : "search-icon text-muted"
+            }
+          />
         </div>
-    )
-}
+      </form>
+    </div>
+  );
+};

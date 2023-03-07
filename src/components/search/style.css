@@ -1,0 +1,41 @@
+.search-container-lg .form-group {
+    position: relative;
+}
+
+.search-container-lg .form-group .form-control {
+    font-size: 14px !important;
+    min-height: 55px !important;
+    padding-left: 45px;
+    padding-right: 25px;
+}
+
+.search-container-lg .form-group .search-icon {
+    position: absolute;
+    top: 16px;
+    left: 15px;
+}
+
+.search-container-sm .form-group {
+    position: relative;
+}
+
+.search-container-sm .form-group .form-control {
+    font-size: 13px !important;
+    min-height: 40px !important;
+    min-width: 150px !important;
+    padding-left: 30px;
+    padding-right: 25px;
+    border-radius: 25px;
+}
+
+@media (min-width: 576px) {
+    .search-container-sm .form-group .form-control {
+        min-width: 250px !important;
+    }
+}
+
+.search-container-sm .form-group .search-icon {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+}

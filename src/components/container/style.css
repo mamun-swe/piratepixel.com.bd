@@ -1,13 +1,17 @@
 .container-fluid {
     padding-left: 20px !important;
     padding-right: 20px !important;
+}
 
-    @media (min-width: 992px) {
+@media (min-width: 992px) {
+    .container-fluid {
         padding-left: 30px !important;
         padding-right: 30px !important;
     }
+}
 
-    @media (min-width: 1580px) {
+@media (min-width: 1580px) {
+    .container-fluid {
         padding-left: 40px !important;
         padding-right: 40px !important;
     }
